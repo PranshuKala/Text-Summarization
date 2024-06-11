@@ -1,4 +1,4 @@
-# ** Text-Summarization Report **
+# **Text-Summarization Report**
 
 ---
 
