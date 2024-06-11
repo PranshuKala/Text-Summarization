@@ -1,5 +1,4 @@
 # **Text-Summarization Report**
-
 ---
 
 ## Data Collection 
