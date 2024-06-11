@@ -10,7 +10,8 @@
 
 ## Data Preprocessing and EDA 
 - Extracted the required columns from the master dataset 
-- Applied nlp preprocessing techniques on the extracted dataset.   
+- Applied nlp preprocessing techniques on the extracted dataset.
+- Visualized the data distribution between the input and target column   
 - Saved the preprocessed dataset.
 
 ## Model Building (Ongoing)
