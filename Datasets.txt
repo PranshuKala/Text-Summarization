@@ -1,5 +1,0 @@
-1. CNN-DailyMail News Text Summarization 528 mb - usability(10) , large dataset
-
-2. BBC News Summary 9mb large df
-
-3. inshorts NEWS SUMMARY scrapped dataset (small dataset , good for training on local system)
