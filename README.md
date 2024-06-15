@@ -15,4 +15,7 @@
 - Saved the preprocessed dataset.
 
 ## Model Building (Ongoing)
-- Searching the best model and how to apply it on the preprocessed dataset
+
+- Selected t5-small model for abstractive summarization
+
+- Training the fine tuned model on the dataset 
