@@ -17,5 +17,7 @@
 ## Model Building (Ongoing)
 
 - Selected t5-small model for abstractive summarization
+- Prefine tuning results stored at `Summarization_Model/model.ipynb`
+- Fine tuned it on my dataset , evaluated results at `Summarization_Model/evaluation.ipynb`
 
-- Training the fine tuned model on the dataset 
+- Working on extractive model
