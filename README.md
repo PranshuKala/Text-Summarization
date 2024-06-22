@@ -4,7 +4,7 @@
 ---
 
 ## Data Collection 
-- Searched for suitable dataset to be trained on my hardware
+- Searched for suitable dataset to be trained on my hardware <br>
 - Selected 'Inshorts News Summary Dataset'
 - Successfully loaded the selected dataset , saved that in Data Folder.
 
