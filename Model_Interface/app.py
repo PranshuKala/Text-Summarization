@@ -1,18 +1,19 @@
 from simpletransformers.t5 import T5Model, T5Args
 import torch
 from summa import summarizer
-import nltk
-nltk.download('stopwords')
+
 from nltk.corpus import stopwords
 stop = stopwords.words('english')
 import re
 import streamlit as st
+import os
+
 
 # Check if CUDA is available
 cuda = torch.cuda.is_available()
 
 # Load the model
-model_path = 'C:/Users/Perplex420/Desktop/Text_Summarization/Model_Interface/model_summarize_abstractive'
+model_path = os.path.join(os.path.dirname(__file__), 'model_summarize_abstractive' )
 model = T5Model('t5', model_path, use_cuda=cuda)
 
 def generate_extractive_summary(text):
