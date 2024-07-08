@@ -40,7 +40,7 @@
 
 - Optimized ratio Length of summary to input text to get better results.
 
-## Model Interface (Ongoing)
+## Model Interface 
 
 - Built Model Interface using streamlit library.
 - Implemented in `Model_Interface/app.py`.
