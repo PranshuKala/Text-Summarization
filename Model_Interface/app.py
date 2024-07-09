@@ -16,8 +16,6 @@ nltk.download("stopwords")
 # Load stopwords once
 stop = set(stopwords.words('english'))
 
-
-@st.cache_resource
 def load_model():
     model_path = os.path.join(os.path.dirname(__file__), 'model_summarize_abstractive')
     model = T5Model('t5', model_path, use_cuda=False)
