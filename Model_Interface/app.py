@@ -1,20 +1,29 @@
-from simpletransformers.t5 import T5Model, T5Args
-import torch
-from summa import summarizer
-
-from nltk.corpus import stopwords
-stop = stopwords.words('english')
-import re
-import streamlit as st
 import os
+import re
+import torch
+import streamlit as st
+from summa import summarizer
+import nltk
+from nltk.corpus import stopwords
+from simpletransformers.t5 import T5Model, T5Args
+
+# Set the page configuration
+st.set_page_config(page_title="Text Summarizer", page_icon="📝", layout="wide")
+
+# Download NLTK stopwords
+nltk.download("stopwords")
+
+# Load stopwords once
+stop = set(stopwords.words('english'))
 
 
-# Check if CUDA is available
-cuda = torch.cuda.is_available()
+@st.cache_resource
+def load_model():
+    model_path = os.path.join(os.path.dirname(__file__), 'model_summarize_abstractive')
+    model = T5Model('t5', model_path, use_cuda=False)
+    return model
 
-# Load the model
-model_path = os.path.join(os.path.dirname(__file__), 'model_summarize_abstractive' )
-model = T5Model('t5', model_path, use_cuda=cuda)
+model = load_model()
 
 def generate_extractive_summary(text):
     text = ' '.join([word for word in text.split() if word not in stop])
@@ -25,7 +34,7 @@ def summarize_text(text):
     summary = model.predict([text])[0]
     return summary
 
-st.set_page_config(page_title="Text Summarizer", page_icon="📝", layout="wide")
+# Streamlit App
 st.title("Text Summarizer")
 st.markdown("""
 <style>
@@ -58,7 +67,7 @@ footer {
 
 st.header("Enter your Text ")
 
-text_input = st.text_area("", height=200)
+text_input = st.text_area("text", height=200, label_visibility="collapsed")
 
 def copy_to_clipboard(summary):
     js = f"""navigator.clipboard.writeText(`{summary}`)"""
@@ -77,7 +86,7 @@ with col1:
                 st.write(summary_output)
                 st.markdown(f"<button onclick=\"{copy_to_clipboard(summary_output)}\">Copy to clipboard</button>", unsafe_allow_html=True)
 
-with col2:                
+with col2:
     if st.button("Generate Extractive Summary"):
         if text_input.strip() == "":
             st.error("Please enter some text to summarize.")
